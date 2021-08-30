@@ -21,6 +21,14 @@ app.use("/static", express.static(path.join(__dirname, "public/")));
 app.set("views", path.join(__dirname, "views/"));
 app.set("view engine", "ejs");
 
+
+app.get("/", async (req, res) => {
+    try {
+        return res.redirect("/home");
+    } catch (err) {
+        return res.status(400).send(err.message);
+    }
+});
 app.use("/home", homeController);
 
 app.use("/safety", filterprodController);
