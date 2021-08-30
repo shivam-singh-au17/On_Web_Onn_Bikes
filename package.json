@@ -6,9 +6,7 @@
   "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "server": "nodemon src/server",
-      "start" : "node src/server.js",
-      "build": "grunt dist",
-      "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+      "start" : "node src/server.js"
   },
   "author": "Shivam Singh",
   "license": "ISC",
