@@ -12,6 +12,8 @@ const bikesobjectController = require("./controllers/bikesobject.controller");
 const app = express();
 app.use(express.json());
 
+const port = process.env.PORT || 3007
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use("/static", express.static(path.join(__dirname, "public/")));
@@ -25,7 +27,8 @@ app.use("/safety", filterprodController);
 app.use("/arrofLocation", arroflocationController);
 app.use("/bikesObject", bikesobjectController);
 
-app.listen(3007, async () => {
+app.listen(port, async () => {
     await connect();
-    console.log("Listening on port 3007");
+    console.log(`Listening on port ${port}`);
 })
+
